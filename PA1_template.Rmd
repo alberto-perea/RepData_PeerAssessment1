@@ -47,11 +47,13 @@ medianStepsDay <- median(totalStepsDay$steps)
 ```
 
 Histogram of the total number of steps for each day
-```{r Histogram total steps per day}
+```{r}
 hist(totalStepsDay$steps,     #Histogram
      col = "aliceblue",
      xlab = "Number of Steps per day",
      main = "Histogram Steps per day")
+png("plot1.png")
+dev.off
 ```
 
 Statistics of Total number of steps for each day:

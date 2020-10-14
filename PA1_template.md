@@ -66,7 +66,24 @@ hist(totalStepsDay$steps,     #Histogram
      main = "Histogram Steps per day")
 ```
 
-![](PA1_template_files/figure-html/Histogram total steps per day-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+
+```r
+png("plot1.png")
+dev.off
+```
+
+```
+## function (which = dev.cur()) 
+## {
+##     if (which == 1) 
+##         stop("cannot shut down device 1 (the null device)")
+##     .External(C_devoff, as.integer(which))
+##     dev.cur()
+## }
+## <bytecode: 0x0000000007b5b8a0>
+## <environment: namespace:grDevices>
+```
 
 Statistics of Total number of steps for each day:
 
