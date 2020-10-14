@@ -52,8 +52,6 @@ hist(totalStepsDay$steps,     #Histogram
      col = "aliceblue",
      xlab = "Number of Steps per day",
      main = "Histogram Steps per day")
-png("plot1.png")
-dev.off
 ```
 
 Statistics of Total number of steps for each day:
