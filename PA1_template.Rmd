@@ -33,14 +33,14 @@ The data had only 3 variables:
 - **`r dataNames[3]`**: Identifier for the 5-minute interval in which measurement was taken
 
 The imported data looks like this:
-```{r head data}
+```{r}
 head(data)
 ```
 
 ## What is mean total number of steps taken per day?
 
 The total number of steps for each day is calculate, from this total number steps the mean and median are calculated
-```{r total steps per day}
+```{r}
 totalStepsDay <- aggregate(steps ~ date, data, sum)
 meanStepsDay   <- sprintf(mean(totalStepsDay$steps), fmt = "%#.3f") 
 medianStepsDay <- median(totalStepsDay$steps)
@@ -62,13 +62,13 @@ Statistics of Total number of steps for each day:
 ## What is the average daily activity pattern?
 
 First the average daily steps activity per interval considering all days need to be calculated.
-```{r Daily activity}
+```{r}
 meanStepsInterval <- aggregate(steps ~ interval, data, mean)
 maxPoint <- meanStepsInterval[which.max(meanStepsInterval$steps),] #Maximum Point
 ```
 
 The next plot shows the calculated results of the average daily steps per interval taking in account all days.
-```{r Daily activity Plot}
+```{r}
 plot(meanStepsInterval$interval, meanStepsInterval$steps,
      type = "l",
      col = "blue",
@@ -89,7 +89,7 @@ Whit this information it can be said that in average, on the 61 days, in the int
 ## Imputing missing values
 
 First the data frame is analyzed to see how many rows had missing values, or in other words are not complete.
-```{r rowsInfo}
+```{r}
 rowsInfo <- table(complete.cases(data))
 rowsIncomplete <- sprintf((rowsInfo[[1]]/nrow(data))*100, fmt = "%#.2f") #% Incomplete 
 rowsComplete <- sprintf((rowsInfo[[2]]/nrow(data))*100, fmt = "%#.2f")   #% Complete 
@@ -101,7 +101,7 @@ It can be seen that in the data frame there are:
 - Complete Rows: `r rowsInfo[[2]]` (`r rowsComplete`% of the data frame) 
 
 Then the columns are analyzed to see where are **NA** (Missing Values)
-```{r columnsInfo}
+```{r}
 colsInfo <- colSums(is.na(data))
 ```
 
@@ -127,19 +127,19 @@ dataNew$steps[idxNA]<-vectorSteps #Replace NA with new Vector
 ```
 
 The new data with the imputating NA looks like this:
-```{r head dataNew}
+```{r}
 head(dataNew)
 ```
 
 The total number of steps for each day is calculate, from this total number steps the mean and median are calculated
-```{r total steps per day New}
+```{r}
 totalStepsDayNew <- aggregate(steps ~ date, dataNew, sum)
 meanStepsDayNew   <- sprintf(mean(totalStepsDayNew$steps), fmt = "%#.3f") 
 medianStepsDayNew <- sprintf(median(totalStepsDayNew$steps), fmt = "%#.3f")
 ```
 
 Histogram of the total number of steps for each day
-```{r Histogram total steps per day New}
+```{r}
 hist(totalStepsDayNew$steps,     #Histogram
      col = "aliceblue",
      xlab = "Number of Steps per day",
@@ -156,7 +156,7 @@ It can be seen that the values differ from the ones at the beginning of the assi
 ## Are there differences in activity patterns between weekdays and weekends?
 
 First it is needed to determine the days where is a **week day** and when is a **weekend day**
-```{r weekdays/weekends}
+```{r}
 days <- weekdays(dataNew$date)
 idxWeekend <- which(days %in% c("Saturday", "Sunday"))
 days <- replace(days, idxWeekend, "weekend")
@@ -166,7 +166,7 @@ meanStepsDayType<- aggregate(steps ~ day.type + interval,dataNew, mean)
 ```
 
 The next plot shows the calculated results of the average daily steps per interval separated by weekday or weekend.
-```{r Panel Plot}
+```{r}
 library(lattice)
 xyplot(steps~interval|day.type,
        data = meanStepsDayType,

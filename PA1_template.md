@@ -66,7 +66,7 @@ hist(totalStepsDay$steps,     #Histogram
      main = "Histogram Steps per day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 Statistics of Total number of steps for each day:
 
@@ -95,7 +95,7 @@ points(maxPoint, pch = 19, col = "red")
 text(maxPoint$interval + 200, maxPoint$steps, labels = "Max Point")
 ```
 
-![](PA1_template_files/figure-html/Daily activity Plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 It can be seen the Maximum point in the plot, which is:
 
@@ -180,7 +180,7 @@ hist(totalStepsDayNew$steps,     #Histogram
      main = "Histogram Steps per day")
 ```
 
-![](PA1_template_files/figure-html/Histogram total steps per day New-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 Statistics of Total number of steps for each day:
 
@@ -215,6 +215,6 @@ xyplot(steps~interval|day.type,
        main= "Steps average by time interval on Weekeend/weekday")
 ```
 
-![](PA1_template_files/figure-html/Panel Plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 As it can be seen in the Plot there is a difference between weekdays and weekends on the average number of steps. It can be seen that the average number of steps increase during the weekends, this can be due that the people had free time on the weekends and go out to enjoy their free time, as in comparison with the weekdays where only in certain interval of the days the average number of steps increase.
